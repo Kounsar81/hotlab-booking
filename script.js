@@ -93,6 +93,16 @@ function confirmBooking(instrument) {
   };
 
   alert(`Booking Confirmed!\n\nName: ${user.name}\nInstrument: ${instrument}\nTime Slots: ${selectedSlots.join(", ")}`);
+sendDataToSheet({
+  name: user.name,
+  email: user.email,
+  phone: user.phone,
+  company: user.company,
+  bookings: selectedSlots.map(slot => ({
+    instrument,
+    timeSlot: slot
+  }))
+});
 
   if (!bookedSlots[instrument]) {
     bookedSlots[instrument] = [];
@@ -138,4 +148,14 @@ function showUserHistory(name, email) {
 
   historyBox.appendChild(list);
   container.appendChild(historyBox);
+}
+function sendDataToSheet(data) {
+  fetch("https://script.google.com/macros/s/AKfycbzC9CfZtJ6GFmIRNNAgkLojWYh5XYqPnFLqg5h7zobeKaLWWsawZy9ZUDU9YzmYyy-TOA/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(res => res.json())
+  .then(res => console.log("Google Sheet response:", res))
+  .catch(err => console.error("Error sending to Google Sheet:", err));
 }
