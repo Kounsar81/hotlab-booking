@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hotlab Booking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Hotlab Instrument Booking</h1>
+
+    <div id="user-form">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email ID" required />
+      <input type="text" id="phone" placeholder="Phone Number" required />
+      <input type="text" id="company" placeholder="Company Name" required />
+      <button onclick="submitUser()">Proceed to Booking</button>
+    </div>
+
+    <div id="booking-section" class="hidden">
+      <h2>Select Instrument</h2>
+      <select id="instrument-select" onchange="showTimeSlots()">
+        <option value="">-- Select Instrument --</option>
+        <option value="FTIR">FTIR</option>
+        <option value="HPLC">HPLC</option>
+        <option value="GC">Gas Chromatography</option>
+        <option value="UV-Vis">UV-Visible Spectrophotometer</option>
+      </select>
+
+      <div id="timeslots" class="slot-grid"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
