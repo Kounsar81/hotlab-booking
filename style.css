@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.slot {
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #28a745;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.slot.booked {
+  border-color: #dc3545;
+  background-color: #f8d7da;
+  cursor: not-allowed;
+}
+
+.slot.selected {
+  border-color: #007bff;
+  background-color: #d0e7ff;
+}
+
+.hidden {
+  display: none;
+}
