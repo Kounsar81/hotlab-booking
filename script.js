@@ -150,7 +150,8 @@ function showUserHistory(name, email) {
   container.appendChild(historyBox);
 }
 function sendDataToSheet(data) {
-  fetch("https://script.google.com/macros/s/AKfycbzC9CfZtJ6GFmIRNNAgkLojWYh5XYqPnFLqg5h7zobeKaLWWsawZy9ZUDU9YzmYyy-TOA/exec", {
+ fetch("https://script.google.com/macros/s/AKfycbylaXFpwQ18JevmJZCD2-ElxJFY-a6U-RwzGy2G4wCaZnC_X-SpT-dZVRRvKvzbTTIOpw/exec", {
+
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
